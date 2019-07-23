@@ -1,0 +1,14 @@
+version: '3'
+services:
+  jenkinsDev:
+    restart: always
+    environment:
+    - no_proxy=127.0.0.1,localhost
+    - http_proxy=proxy.abc.xyz.corp:8080
+    - https_proxy=proxy.abc.xyz.corp:8080
+    ports:
+    - "8080:8080"
+    - "50000:50000"
+    volumes:
+    - E:/dockerData/jenkinsVolume:/var/jenkins_home
+    image: jenkins/jenkins:lts
